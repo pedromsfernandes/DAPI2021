@@ -1,7 +1,8 @@
 import scrapy
 
 class HLTVNews(scrapy.Spider):
-    name="news"
+    name = "news"
+    count = 0
 
     def start_requests(self):
         urls =[
@@ -50,10 +51,11 @@ class HLTVNews(scrapy.Spider):
 
 
     def parse_article(self, response):
+        self.count += 1
         text = response.css('div.newsdsl .legacy-con p > span::text, div.newsdsl .legacy-con p > span > a::text').getall()
-        collapsed_text = ''.join(text)
-        collapsed_text.replace("\n", "")
+        collapsed_text = ' '.join(''.join(text).split())
         yield {
+            'ID': self.count - 1,
             'date': response.css('div.article-info .date::text').get(),
             'title': response.css('h1.headline::text').get(),
             'text': collapsed_text,
