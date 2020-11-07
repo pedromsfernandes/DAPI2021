@@ -1,0 +1,22 @@
+{
+  "name": "ir",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node dist/mergeFiles.js",
+    "start-mem": "tsc && node --max-old-space-size=6144 dist/mergeFiles.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^6.2.0",
+    "csv": "^5.3.2",
+    "lodash": "^4.17.20"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.165",
+    "@types/node": "^14.14.6"
+  }
+}
