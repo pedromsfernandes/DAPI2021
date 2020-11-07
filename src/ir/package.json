@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "tsc && node dist/mergeFiles.js",
-    "start-mem": "tsc && node --max-old-space-size=6144 dist/mergeFiles.js"
+    "start-mem": "tsc && node --max-old-space-size=6144 dist/mergeFiles.js",
+    "watch": "tsc -w"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +18,7 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.165",
-    "@types/node": "^14.14.6"
+    "@types/node": "^14.14.6",
+    "typescript": "^4.0.5"
   }
 }

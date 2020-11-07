@@ -3,26 +3,34 @@ import { promises as fs } from "fs";
 import { resolve } from "path";
 import _ from "lodash";
 import { program } from "commander";
+import {
+  getFieldsFromPick,
+  getFieldsFromMatchResult,
+  getFieldsFromEcon,
+  getFieldsFromMapResult,
+  getFieldsFromPlayer,
+} from "./getters";
 
-program.option("-f, --folder <folder>", "folder with csv files");
+const setupProgram = () => {
+  program.option("-f, --folder <folder>", "folder with csv files");
 
-program.on("--help", () => {
-  console.log("");
-  console.log("Example call:");
-  console.log("  $ npm start -- -f ../../data/files");
-  console.log("");
-  console.log("If getting memory heap error:");
-  console.log("  $ npm start-mem -- -f ../../data/files");
-});
+  program.on("--help", () => {
+    console.log("");
+    console.log("Example call:");
+    console.log("  $ npm start -- -f ../../data/files");
+    console.log("");
+    console.log("If getting memory heap error:");
+    console.log("  $ npm run start-mem -- -f ../../data/files");
+  });
 
-program.parse(process.argv);
+  program.parse(process.argv);
 
-if (process.argv.length < 3) {
-  program.help();
-}
+  if (process.argv.length < 3) {
+    program.help();
+  }
+};
 
-const main = async () => {
-  const path = resolve(program.folder);
+const parseFiles = async (path: string) => {
   const resultsFile = await fs.readFile(path + "/results.csv");
   const picksFile = await fs.readFile(path + "/picks.csv");
   const playersFile = await fs.readFile(path + "/players.csv");
@@ -36,88 +44,63 @@ const main = async () => {
   results = _.groupBy(results, "match_id");
   economy = _.groupBy(economy, "match_id");
   players = _.groupBy(players, "match_id");
+  picks = Object.fromEntries(
+    picks.map(({ match_id, ...rest }: any) => [match_id, rest])
+  );
 
-  const matches = picks.map((game: any) => {
-    const { date, team_1, team_2, match_id, event_id, best_of, ...veto } = game;
-    const result = results[game.match_id];
-    let econ = economy[game.match_id];
-    let matchPlayers = players[game.match_id];
+  return { picks, results, economy, players };
+};
+
+const buildMatches = (
+  results: any[],
+  economy: any[],
+  picks: any[],
+  players: any[]
+) =>
+  Object.entries(results).map(([match_id, result]: any) => {
+    let econ = economy[match_id];
+    let matchPlayers = players[match_id];
+    let pick = picks[match_id];
+
+    if (pick) {
+      pick = getFieldsFromPick(pick);
+    }
 
     return {
-      date,
-      team_1,
-      team_2,
-      match_id,
-      event_id,
-      best_of,
-      picks: veto,
+      ...getFieldsFromMatchResult(result[0]),
+      picks: pick,
       players: matchPlayers
-        ? matchPlayers.map(
-            ({
-              date,
-              opponent,
-              match_id,
-              event_id,
-              event_name,
-              best_of,
-              map_1,
-              map_2,
-              map_3,
-              ...rest
-            }: any) => rest
-          )
+        ? matchPlayers.map((player: any) => getFieldsFromPlayer(player))
         : null,
-      maps: result.map(
-        ({
-          result_1,
-          result_2,
-          map_winner,
-          starting_ct,
-          ct_1,
-          t_2,
-          t_1,
-          ct_2,
-          _map,
-        }: any) => {
-          let mapEcon = econ
-            ? econ.find((map: any) => map._map === _map)
-            : null;
+      maps: result.map((mapResult: any) => {
+        let mapEcon = econ
+          ? econ.find((map: any) => map._map === mapResult._map)
+          : null;
 
-          if (mapEcon) {
-            const {
-              date,
-              match_id,
-              event_id,
-              team_1,
-              team_2,
-              best_of,
-              _map,
-              t1_start,
-              t2_start,
-              ...rest
-            } = mapEcon;
-            mapEcon = rest;
-          }
-
-          return {
-            result_1,
-            result_2,
-            map_winner,
-            starting_ct,
-            ct_1,
-            t_2,
-            t_1,
-            ct_2,
-            _map,
-            economy: mapEcon,
-          };
+        if (mapEcon) {
+          mapEcon = getFieldsFromEcon(mapEcon);
         }
-      ),
+
+        return {
+          ...getFieldsFromMapResult(mapResult),
+          economy: mapEcon,
+        };
+      }),
     };
   });
 
+const writeMatches = async (path: string, matches: any[]) => {
   const json = matches.map((match: any) => JSON.stringify(match)).join(",\n");
-  fs.writeFile(path + "/output.json", `[${json}]`);
+  await fs.writeFile(path + "/output.json", `[${json}]`);
+  console.log("Wrote output file to:", path + "/output.json");
+};
+
+const main = async () => {
+  setupProgram();
+  const path = resolve(program.folder);
+  const { results, economy, picks, players } = await parseFiles(path);
+  const matches = buildMatches(results, economy, picks, players);
+  writeMatches(path, matches);
 };
 
 main();
