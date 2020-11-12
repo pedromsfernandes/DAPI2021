@@ -1,4 +1,5 @@
 export const getFieldsFromPick = ({
+  match_id,
   best_of,
   system,
   t1_removed_1,
@@ -10,6 +11,7 @@ export const getFieldsFromPick = ({
   t1_picked_1,
   t2_picked_1,
 }: any) => ({
+  id: `${match_id}-pick`,
   best_of,
   system,
   t1_removed_1,
@@ -33,7 +35,10 @@ export const getFieldsFromEcon = ({
   t1_start,
   t2_start,
   ...rest
-}: any) => rest;
+}: any) => ({
+  id: `${match_id}-${_map}-econ`,
+  rest,
+});
 
 export const getFieldsFromMapResult = ({
   result_1,
@@ -45,6 +50,7 @@ export const getFieldsFromMapResult = ({
   t_1,
   ct_2,
   _map,
+  match_id,
 }: any) => ({
   result_1,
   result_2,
@@ -55,6 +61,8 @@ export const getFieldsFromMapResult = ({
   t_1,
   ct_2,
   _map,
+  id: `${match_id}-${_map}`,
+  content_type: "map",
 });
 
 export const getFieldsFromMatchResult = ({
@@ -67,6 +75,7 @@ export const getFieldsFromMatchResult = ({
   map_wins_1,
   map_wins_2,
   match_winner,
+  match_id,
 }: any) => ({
   date,
   team_1,
@@ -77,6 +86,8 @@ export const getFieldsFromMatchResult = ({
   map_wins_1,
   map_wins_2,
   match_winner,
+  content_type: "match",
+  id: match_id,
 });
 
 export const getFieldsFromPlayer = ({
@@ -90,4 +101,4 @@ export const getFieldsFromPlayer = ({
   map_2,
   map_3,
   ...rest
-}: any) => rest;
+}: any) => ({ content_type: "player", id: rest.player_id, ...rest });

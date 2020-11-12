@@ -52,47 +52,53 @@ const parseFiles = async (path: string) => {
 };
 
 const buildMatches = (
-  results: any[],
-  economy: any[],
-  picks: any[],
-  players: any[]
+  results: any,
+  economy: any,
+  picks: any,
+  players: any
 ) =>
-  Object.entries(results).map(([match_id, result]: any) => {
-    let econ = economy[match_id];
-    let matchPlayers = players[match_id];
-    let pick = picks[match_id];
-
-    if (pick) {
-      pick = getFieldsFromPick(pick);
-    }
-
-    return {
-      ...getFieldsFromMatchResult(result[0]),
-      picks: pick,
-      players: matchPlayers
+  Object.entries(results)
+    .map(([match_id, result]: any) => {
+      let econ = economy[match_id];
+      let matchPlayers = players[match_id];
+      let pick = picks[match_id];
+      pick = pick ? getFieldsFromPick(pick) : null;
+      matchPlayers = matchPlayers
         ? matchPlayers.map((player: any) => getFieldsFromPlayer(player))
-        : null,
-      maps: result.map((mapResult: any) => {
+        : [];
+
+      const maps = result.map((mapResult: any) => {
         let mapEcon = econ
           ? econ.find((map: any) => map._map === mapResult._map)
           : null;
 
+        const res: any = {
+          ...getFieldsFromMapResult({
+            match_id: result[0].match_id,
+            ...mapResult,
+          }),
+        };
+
         if (mapEcon) {
-          mapEcon = getFieldsFromEcon(mapEcon);
+          res.economy = getFieldsFromEcon(mapEcon);
         }
 
-        return {
-          ...getFieldsFromMapResult(mapResult),
-          economy: mapEcon,
-        };
-      }),
-    };
-  });
+        return res;
+      });
+
+      const _childDocuments_ = [...matchPlayers, ...maps];
+      if (pick) _childDocuments_.push(pick);
+
+      return {
+        ...getFieldsFromMatchResult(result[0]),
+        _childDocuments_,
+      };
+    });
 
 const writeMatches = async (path: string, matches: any[]) => {
   const json = matches.map((match: any) => JSON.stringify(match)).join(",\n");
-  await fs.writeFile(path + "/output.json", `[${json}]`);
-  console.log("Wrote output file to:", path + "/output.json");
+  await fs.writeFile(path + "/output2.json", `[${json}]`);
+  console.log("Wrote output file to:", path + "/output2.json");
 };
 
 const main = async () => {
