@@ -1,3 +1,5 @@
+import { Pick, Player, Result } from "./types";
+
 export const getFieldsFromPick = ({
   match_id,
   best_of,
@@ -10,7 +12,7 @@ export const getFieldsFromPick = ({
   t2_removed_3,
   t1_picked_1,
   t2_picked_1,
-}: any) => ({
+}: Pick) => ({
   id: `${match_id}-pick`,
   best_of,
   system,
@@ -76,7 +78,7 @@ export const getFieldsFromMatchResult = ({
   map_wins_2,
   match_winner,
   match_id,
-}: any) => ({
+}: Result) => ({
   date,
   team_1,
   team_2,
@@ -101,4 +103,4 @@ export const getFieldsFromPlayer = ({
   map_2,
   map_3,
   ...rest
-}: any) => ({ content_type: "player", id: rest.player_id, ...rest });
+}: Player) => ({ content_type: "player", id: rest.player_id, ...rest });
