@@ -39,7 +39,7 @@ const setupProgram = () => {
 };
 
 const cast = (value: string) => {
-  if (!isNaN(+value)) {
+  if (!isNaN(+value) && !(value === "")) {
     return Number(value);
   }
   return value;
