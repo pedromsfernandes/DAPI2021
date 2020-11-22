@@ -94,7 +94,6 @@ export const getFieldsFromMatchResult = ({
 });
 
 export const getFieldsFromPlayer = ({
-  date,
   opponent,
   match_id,
   event_id,
@@ -115,10 +114,9 @@ export const getFieldsFromPlayer = ({
   adr,
   fkdiff,
   rating,
-}: Player) => ({ 
-  content_type: "player", 
-  id: player_id, 
-  date,
+}: Player) => ({
+  content_type: "player",
+  id: player_id,
   opponent,
   match_id,
   event_id,
@@ -129,14 +127,14 @@ export const getFieldsFromPlayer = ({
   map_3,
   country,
   player_id,
-  kills,
-  assists,
-  deaths,
-  hs,
-  flash_assists,
-  kast,
-  kddiff,
-  adr,
-  fkdiff,
-  rating, 
+  kills: kills ? kills : 0,
+  assists: assists ? assists : 0,
+  deaths: deaths ? deaths : 0,
+  hs: hs ? hs : 0,
+  flash_assists: flash_assists ? flash_assists : 0,
+  kast: kast ? kast : 0,
+  kddiff: kddiff ? kddiff : 0,
+  adr: adr ? adr : 0,
+  fkdiff: fkdiff ? fkdiff : 0,
+  rating: rating ? rating : 0,
 });
