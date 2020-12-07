@@ -115,9 +115,11 @@ export const getFieldsFromPlayer = ({
   adr,
   fkdiff,
   rating,
+  player_name
 }: Player) => ({ 
   content_type: "player", 
-  id: player_id, 
+  id: player_id,
+  player_name, 
   date,
   opponent,
   match_id,
