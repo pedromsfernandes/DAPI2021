@@ -71,7 +71,7 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#team"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Team"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Player"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
     </owl:ObjectProperty>
     
 
@@ -111,7 +111,7 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#team">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Competition"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Player"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Team"/>
     </owl:ObjectProperty>
     
@@ -148,6 +148,16 @@
     
 
 
+    <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#adr -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#adr">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#age -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#age">
@@ -157,11 +167,21 @@
     
 
 
+    <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#assists -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#assists">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#country -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#country">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Player"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
@@ -177,11 +197,102 @@
     
 
 
+    <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#deaths -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#deaths">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#fkdiff -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#fkdiff">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#flashAssists -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#flashAssists">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#hs -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#hs">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#kast -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#kast">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#kddiff -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#kddiff">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#kills -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#kills">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#name -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#name">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#playerId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#playerId">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#rating -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#rating">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
     </owl:DatatypeProperty>
     
 
@@ -269,9 +380,15 @@
     
 
 
-    <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Player -->
+    <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Player"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
+    
+
+
+    <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Picks -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Picks"/>
     
 
 
@@ -414,7 +531,7 @@
     <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Perfecto -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Perfecto">
-        <rdf:type rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Player"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
         <csgo-ontology:team rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Natus_Vincere"/>
     </owl:NamedIndividual>
     
@@ -439,7 +556,7 @@
     <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#boombl4 -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#boombl4">
-        <rdf:type rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Player"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
         <csgo-ontology:team rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Natus_Vincere"/>
     </owl:NamedIndividual>
     
@@ -448,7 +565,7 @@
     <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#bymas -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#bymas">
-        <rdf:type rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Player"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
         <csgo-ontology:team rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#mousesports"/>
     </owl:NamedIndividual>
     
@@ -457,7 +574,7 @@
     <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#chrisJ -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#chrisJ">
-        <rdf:type rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Player"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
         <csgo-ontology:team rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#mousesports"/>
     </owl:NamedIndividual>
     
@@ -474,7 +591,7 @@
     <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#electronic -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#electronic">
-        <rdf:type rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Player"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
         <csgo-ontology:team rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Natus_Vincere"/>
     </owl:NamedIndividual>
     
@@ -483,7 +600,7 @@
     <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#flamie -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#flamie">
-        <rdf:type rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Player"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
         <csgo-ontology:team rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Natus_Vincere"/>
         <csgo-ontology:country>Russia</csgo-ontology:country>
     </owl:NamedIndividual>
@@ -493,7 +610,7 @@
     <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#frozen -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#frozen">
-        <rdf:type rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Player"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
         <csgo-ontology:team rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#mousesports"/>
     </owl:NamedIndividual>
     
@@ -502,7 +619,7 @@
     <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#karrigan -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#karrigan">
-        <rdf:type rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Player"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
         <csgo-ontology:team rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#mousesports"/>
         <csgo-ontology:age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</csgo-ontology:age>
         <csgo-ontology:country>Denmark</csgo-ontology:country>
@@ -542,7 +659,7 @@
     <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#ropz -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#ropz">
-        <rdf:type rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Player"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
         <csgo-ontology:team rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#mousesports"/>
     </owl:NamedIndividual>
     
@@ -551,7 +668,7 @@
     <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#s1mple -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#s1mple">
-        <rdf:type rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Player"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
         <csgo-ontology:team rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Natus_Vincere"/>
     </owl:NamedIndividual>
     
