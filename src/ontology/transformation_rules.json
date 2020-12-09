@@ -2,6 +2,16 @@
     "Collections":
     [
         {
+            "sheetName": "players",
+            "startColumn": "A",
+            "endColumn": "A",
+            "startRow": "2",
+            "endRow": "+",
+            "comment": "Player creator",
+            "rule": "Individual: @B*\nTypes: Player\nFacts: name @B*(xsd:string)\nFacts: country @D*\nFacts: playerId @E*(xsd:long)",
+            "active": true
+        },
+        {
             "sheetName": "results",
             "startColumn": "A",
             "endColumn": "A",
@@ -16,7 +26,7 @@
             "endColumn": "A",
             "startRow": "2",
             "endRow": "+",
-            "rule": "Individual: @B*(rdf:ID\u003d(@F*, \"-\", @E*, \"matchPlayer\"))\nTypes: MatchPlayer\nFacts: country @D*\nFacts: team @C*\nFacts: match @F*\nFacts: name @B*(xsd:string)\nFacts: kills @G*(xsd:integer)\nFacts: assists @H*(xsd:integer)\nFacts: deaths @I*(xsd:integer)\nFacts: hs @J*(xsd:integer)\nFacts: flashAssists @K*(xsd:integer)\nFacts: kast @L*(xsd:float)\nFacts: kddiff @M*(xsd:float)\nFacts: adr @N*(xsd:float)\nFacts: fkdiff @O*(xsd:float)\nFacts: rating @P*(xsd:float)\nFacts: playerId @E*(xsd:long)",
+            "rule": "Individual: @B*(rdf:ID\u003d(@F*, \"-\", @E*, \"matchPlayer\"))\nTypes: MatchPlayer\nFacts: team @C*\nFacts: match @F*\nFacts: kills @G*(xsd:integer)\nFacts: assists @H*(xsd:integer)\nFacts: deaths @I*(xsd:integer)\nFacts: hs @J*(xsd:integer)\nFacts: flashAssists @K*(xsd:integer)\nFacts: kast @L*(xsd:float)\nFacts: kddiff @M*(xsd:float)\nFacts: adr @N*(xsd:float)\nFacts: fkdiff @O*(xsd:float)\nFacts: rating @P*(xsd:float)\nFacts: playerRef @E*",
             "active": true
         }
     ]
