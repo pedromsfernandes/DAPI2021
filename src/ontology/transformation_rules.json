@@ -8,7 +8,37 @@
             "startRow": "2",
             "endRow": "+",
             "comment": "Player creator",
-            "rule": "Individual: @B*\nTypes: Player\nFacts: name @B*(xsd:string)\nFacts: country @D*\nFacts: playerId @E*(xsd:long)",
+            "rule": "Individual: @E*\nTypes: Player\nFacts: name @B*(xsd:string)\nFacts: country @D*",
+            "active": true
+        },
+        {
+            "sheetName": "players",
+            "startColumn": "C",
+            "endColumn": "C",
+            "startRow": "2",
+            "endRow": "+",
+            "comment": "Team creator",
+            "rule": "Individual: @C*\nTypes: Team\nFacts: name @C*(xsd:string)",
+            "active": true
+        },
+        {
+            "sheetName": "results",
+            "startColumn": "D",
+            "endColumn": "D",
+            "startRow": "2",
+            "endRow": "+",
+            "comment": "Map creator",
+            "rule": "Individual: @D*\nTypes: Map\nFacts: name @D*(xsd:string)",
+            "active": true
+        },
+        {
+            "sheetName": "players",
+            "startColumn": "C",
+            "endColumn": "C",
+            "startRow": "2",
+            "endRow": "+",
+            "comment": "Event creator",
+            "rule": "Individual: @G*\nTypes: Event\nFacts: name @H*(xsd:string)",
             "active": true
         },
         {
@@ -26,7 +56,7 @@
             "endColumn": "A",
             "startRow": "2",
             "endRow": "+",
-            "rule": "Individual: @B*(rdf:ID\u003d(@F*, \"-\", @E*, \"matchPlayer\"))\nTypes: MatchPlayer\nFacts: team @C*\nFacts: match @F*\nFacts: kills @G*(xsd:integer)\nFacts: assists @H*(xsd:integer)\nFacts: deaths @I*(xsd:integer)\nFacts: hs @J*(xsd:integer)\nFacts: flashAssists @K*(xsd:integer)\nFacts: kast @L*(xsd:float)\nFacts: kddiff @M*(xsd:float)\nFacts: adr @N*(xsd:float)\nFacts: fkdiff @O*(xsd:float)\nFacts: rating @P*(xsd:float)\nFacts: playerRef @E*",
+            "rule": "Individual: @B*(rdf:ID\u003d(@F*, \"-\", @E*, \"matchPlayer\"))\nTypes: MatchPlayer\nFacts: team @C*\nFacts: match @F*\nFacts: kills @I*(xsd:integer)\nFacts: assists @J*(xsd:integer)\nFacts: deaths @K*(xsd:integer)\nFacts: hs @L*(xsd:integer)\nFacts: flashAssists @M*(xsd:integer)\nFacts: kast @N*(xsd:float)\nFacts: kddiff @O*(xsd:float)\nFacts: adr @P*(xsd:float)\nFacts: fkdiff @Q*(xsd:float)\nFacts: rating @R*(xsd:float)\nFacts: playerRef @E*",
             "active": true
         }
     ]
