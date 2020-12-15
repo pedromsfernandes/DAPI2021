@@ -48,7 +48,7 @@
             "startRow": "2",
             "endRow": "+",
             "comment": "Match creator",
-            "rule": "Individual: @N*\nTypes: Match\nFacts: team1 @B*\nFacts: team2 @C*\nFacts: winner @S*(xsd:integer)\nFacts: date @A*(xsd:dateTime)",
+            "rule": "Individual: @N*\nTypes: Match\nFacts: event @M*\nFacts: team1 @B*\nFacts: team2 @C*\nFacts: winner @S*(xsd:integer)\nFacts: date @A*(xsd:dateTime)",
             "active": true
         },
         {
@@ -58,7 +58,7 @@
             "startRow": "2",
             "endRow": "+",
             "comment": "Picks creator",
-            "rule": "Individual: @B*(rdf:ID\u003d(@D*, \"-picks\"))\nTypes: Picks\nFacts: bestOf @F*(xsd:integer)\nFacts: pickSystem @G*(xsd:string)\nFacts: team1Removed1 @H*\nFacts: team1Removed2 @I*\nFacts: team1Removed3 @J*\nFacts: team2Removed1 @K*\nFacts: team2Removed2 @L*\nFacts: team2Removed3 @M*\nFacts: team1Picked1 @N*\nFacts: team2Picked1 @O*",
+            "rule": "Individual: @B*(rdf:ID\u003d(@D*, \"-picks\"))\nTypes: Picks\nFacts: match @D*\nFacts: bestOf @F*(xsd:integer)\nFacts: pickSystem @G*(xsd:string)\nFacts: team1Removed1 @H*\nFacts: team1Removed2 @I*\nFacts: team1Removed3 @J*\nFacts: team2Removed1 @K*\nFacts: team2Removed2 @L*\nFacts: team2Removed3 @M*\nFacts: team1Picked1 @N*\nFacts: team2Picked1 @O*",
             "active": true
         },
         {
