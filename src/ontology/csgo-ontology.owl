@@ -654,6 +654,13 @@ A player gains a flash assist when a team mate kills an opponent, while the latt
 
     <owl:Class rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Match">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#rounds"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">5</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchMap"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment>Encounter between two teams for a competitive event.</rdfs:comment>
     </owl:Class>
     
