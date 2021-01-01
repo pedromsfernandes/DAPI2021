@@ -58,7 +58,7 @@
             "startRow": "2",
             "endRow": "+",
             "comment": "Picks creator",
-            "rule": "Individual: @B*(rdf:ID\u003d(@D*, \"-picks\"))\nTypes: Picks\nFacts: match @D*\nFacts: bestOf @F*(xsd:integer)\nFacts: pickSystem @G*(xsd:string)\nFacts: team1Removed1 @H*\nFacts: team1Removed2 @I*\nFacts: team1Removed3 @J*\nFacts: team2Removed1 @K*\nFacts: team2Removed2 @L*\nFacts: team2Removed3 @M*\nFacts: team1Picked1 @N*\nFacts: team2Picked1 @O*",
+            "rule": "Individual: @B*(rdf:ID\u003d(@D*, \"-picks\"))\nTypes: Picks\nFacts: picksOf @D*\nFacts: bestOf @F*(xsd:integer)\nFacts: pickSystem @G*(xsd:string)\nFacts: team1Removed1 @H*\nFacts: team1Removed2 @I*\nFacts: team1Removed3 @J*\nFacts: team2Removed1 @K*\nFacts: team2Removed2 @L*\nFacts: team2Removed3 @M*\nFacts: team1Picked1 @N*\nFacts: team2Picked1 @O*",
             "active": true
         },
         {
@@ -68,7 +68,7 @@
             "startRow": "2",
             "endRow": "+",
             "comment": "MatchMap creator",
-            "rule": "Individual: @B*(rdf:ID\u003d(@N*, \"-\", @D*))\nTypes: MatchMap\nFacts: map @D*\nFacts: match @N*\nFacts: team1rounds @E*(xsd:integer)\nFacts: team2rounds @F*(xsd:integer)",
+            "rule": "Individual: @B*(rdf:ID\u003d(@N*, \"-\", @D*))\nTypes: MatchMap\nFacts: map @D*\nFacts: mapOf @N*\nFacts: team1rounds @E*(xsd:integer)\nFacts: team2rounds @F*(xsd:integer)",
             "active": true
         },
         {
@@ -78,7 +78,7 @@
             "startRow": "2",
             "endRow": "+",
             "comment": "MatchPlayer creator",
-            "rule": "Individual: @B*(rdf:ID\u003d(@F*, \"-\", @E*, \"matchPlayer\"))\nTypes: MatchPlayer\nFacts: team @C*\nFacts: match @F*\nFacts: kills @I*(xsd:integer)\nFacts: assists @J*(xsd:integer)\nFacts: deaths @K*(xsd:integer)\nFacts: hs @L*(xsd:integer)\nFacts: flashAssists @M*(xsd:float)\nFacts: kast @N*(xsd:float)\nFacts: kddiff @O*(xsd:float)\nFacts: adr @P*(xsd:float)\nFacts: fkdiff @Q*(xsd:float)\nFacts: rating @R*(xsd:float)\nFacts: playerRef @E*",
+            "rule": "Individual: @B*(rdf:ID\u003d(@F*, \"-\", @E*, \"matchPlayer\"))\nTypes: MatchPlayer\nFacts: team @C*\nFacts: playedOn @F*\nFacts: kills @I*(xsd:integer)\nFacts: assists @J*(xsd:integer)\nFacts: deaths @K*(xsd:integer)\nFacts: hs @L*(xsd:integer)\nFacts: flashAssists @M*(xsd:float)\nFacts: kast @N*(xsd:float)\nFacts: kddiff @O*(xsd:float)\nFacts: adr @P*(xsd:float)\nFacts: fkdiff @Q*(xsd:float)\nFacts: rating @R*(xsd:float)\nFacts: playerRef @E*",
             "active": true
         }
     ]

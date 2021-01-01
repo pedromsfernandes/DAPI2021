@@ -75,26 +75,15 @@
     
 
 
-    <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#match -->
+    <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#mapOf -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#match">
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#mapOf">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <owl:inverseOf rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#matchPicks"/>
-        <owl:inverseOf rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#players"/>
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#rounds"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchMap"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Picks"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchMap"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Match"/>
-        <rdfs:comment>Relates unit of a match map or a pick process to a match. The map instances of or maps picked and banned from a match.</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -103,10 +92,36 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#matchPicks">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#picksOf"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Match"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Picks"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#picksOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#picksOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Picks"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Match"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#playedOn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#playedOn">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#players"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Match"/>
     </owl:ObjectProperty>
     
 
@@ -639,20 +654,6 @@ A player gains a flash assist when a team mate kills an opponent, while the latt
 
     <owl:Class rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Match">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#players"/>
-                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">10</owl:qualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#rounds"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">5</owl:maxQualifiedCardinality>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchMap"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <rdfs:comment>Encounter between two teams for a competitive event.</rdfs:comment>
     </owl:Class>
     
