@@ -636,6 +636,12 @@ A player gains a flash assist when a team mate kills an opponent, while the latt
 
     <owl:Class rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Event">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#eventMatches"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Match"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment>A competitive tournament or league. Examples include ESL Pro League or IEM Katowice.</rdfs:comment>
     </owl:Class>
     
@@ -645,6 +651,12 @@ A player gains a flash assist when a team mate kills an opponent, while the latt
 
     <owl:Class rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Map">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#mapMatches"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchMap"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment>The space or arena where teams confront one another in professional matches. In CS:GO there are two types of maps: defusal and rescue. However, only defusal maps are used in the professional scene.</rdfs:comment>
     </owl:Class>
     
@@ -670,6 +682,13 @@ A player gains a flash assist when a team mate kills an opponent, while the latt
 
     <owl:Class rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchMap">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#map"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Map"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment>Instance of a map played in a professional match. A match may have between 1 to 5 maps.</rdfs:comment>
     </owl:Class>
     
@@ -679,6 +698,13 @@ A player gains a flash assist when a team mate kills an opponent, while the latt
 
     <owl:Class rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#playerRef"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Player"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment>Player appearance in a match.</rdfs:comment>
     </owl:Class>
     
@@ -688,6 +714,13 @@ A player gains a flash assist when a team mate kills an opponent, while the latt
 
     <owl:Class rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Picks">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#picksOf"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Match"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment>The veto process for a match: succession of map picks and bans to decide which maps will be played in a match.</rdfs:comment>
     </owl:Class>
     
@@ -697,6 +730,12 @@ A player gains a flash assist when a team mate kills an opponent, while the latt
 
     <owl:Class rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Player">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#playerMatches"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment>Professional player of CS:GO.</rdfs:comment>
     </owl:Class>
     
@@ -706,6 +745,12 @@ A player gains a flash assist when a team mate kills an opponent, while the latt
 
     <owl:Class rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Team">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#teamPlayers"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment>Professional team of CS:GO.</rdfs:comment>
     </owl:Class>
 </rdf:RDF>
