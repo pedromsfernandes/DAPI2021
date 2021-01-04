@@ -1,6 +1,6 @@
 # CS:GO Ontology
 
-You can test the ontology by opening the `csgo-ontology-january-2020.owl` file in Protegé, since it has already been populated with a set of matches from January 2020. The `csgo-ontology.owl` does not have any entities, but everything else remains the same.
+You can test the ontology by opening the `csgo-ontology-january-2020.owl` file in Protegé, since it has already been populated with a set of matches from January 2020. The `csgo-ontology.owl` does not have any entities, but everything else remains the same. The spreadsheet and transformation rules files are provided in order to test changes to the ontology after making changes, by populating with the Cellfie plugin.
 
 Here's a sample SPARQL query:
 
