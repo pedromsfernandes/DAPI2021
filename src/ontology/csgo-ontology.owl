@@ -522,15 +522,6 @@ A player gains a flash assist when a team mate kills an opponent, while the latt
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#name">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Event"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Player"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Team"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>Name of a thing.</rdfs:comment>
     </owl:DatatypeProperty>
@@ -753,6 +744,30 @@ A player gains a flash assist when a team mate kills an opponent, while the latt
         </rdfs:subClassOf>
         <rdfs:comment>Professional team of CS:GO.</rdfs:comment>
     </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Event"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Map"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Match"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchMap"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#MatchPlayer"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Picks"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Player"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/zephyrminas/ontologies/2020/11/csgo-ontology#Team"/>
+        </owl:members>
+    </rdf:Description>
 </rdf:RDF>
 
 
